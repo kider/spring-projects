@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      #uri: http://localhost:8181
+      #profile: default
+      #label: master
+      discovery:
+        enabled: true #开启通过服务来访问Config Server
+        serviceId: config-server #Config Server注册的服务名
+      profile: dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/ #服务注册中心

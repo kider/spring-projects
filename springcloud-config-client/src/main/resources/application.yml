@@ -1,0 +1,9 @@
+server:
+  port: 2001
+  name: config-client
+
+#关键安全验证
+management:
+  port: 8008
+  security:
+    enabled: false
