@@ -39,6 +39,12 @@
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 
+		<!--Hystrix服务-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

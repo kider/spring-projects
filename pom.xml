@@ -58,6 +58,7 @@
         <module>springcloud-eureka-client</module>
         <module>springcloud-eureka-server</module>
         <module>springcloud-eureka-consumer</module>
+        <module>springcloud-hystrix-dashboard</module>
     </modules>
 
 
