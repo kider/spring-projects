@@ -4,4 +4,4 @@
 
 - **Spring Cloud Dalston版**
 
-**Eureka、Ribbon、Feign、分布式配置中心、Hystrix、Hystrix Dashboard**
+**Eureka、Ribbon、Feign、分布式配置中心、Hystrix、Hystrix Dashboard、turbine**
