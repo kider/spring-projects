@@ -45,6 +45,18 @@
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
 
+		<!--监控-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!--mq支持-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-hystrix-amqp</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
