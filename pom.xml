@@ -52,7 +52,7 @@
     </dependencies>
 
     <modules>
-        <module>springboot-demo</module>
+        <module>springboot-all</module>
         <module>springcloud-config-client</module>
         <module>springcloud-config-server</module>
         <module>springcloud-eureka-client</module>
@@ -60,6 +60,7 @@
         <module>springcloud-eureka-consumer</module>
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-turbine-amqp</module>
+        <module>springcloud-api-gateway</module>
     </modules>
 
 

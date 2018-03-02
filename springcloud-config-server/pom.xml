@@ -11,7 +11,7 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.spring.boot.springcloud.config</groupId>
+	<groupId>com.spring.cloud.config</groupId>
 	<artifactId>springcloud-config-server</artifactId>
 	<version>${study.version}</version>
 	<packaging>jar</packaging>
