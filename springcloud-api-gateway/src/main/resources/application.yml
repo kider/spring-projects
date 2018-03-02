@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 1101
+
+#传统路由配置 不依赖eureka
+#单实例配置
+#zuul:
+#  routes:
+#    eureka-client:
+#      path: /eurekaClient/**
+#      url: http://localhost:2001/
+
+#多实例配置
+#去掉负载发现服务
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#zuul:
+#  routes:
+#    eureka-client:
+#      path: /eurekaClient/**
+#      serviceId: eureka-client
+#
+#eureka-client:
+#  ribbon:
+#    listOfServers: http://localhost:2001/,http://localhost:2002/
+
+#服务路由配置 依赖eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+zuul:
+  routes:
+    eureka-client: /eurekaClient/**
