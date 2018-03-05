@@ -22,7 +22,7 @@ public class WebLogAspect {
 
     ThreadLocal<Long> executeTime = new ThreadLocal<Long>();
 
-    @Pointcut("execution(public * com.spring.boot.example.springbootdemo.web..*.*(..))")
+    @Pointcut("execution(public * com.spring.boot.example.web..*.*(..))")
     public void webLog(){}
 
     @Before("webLog()")
