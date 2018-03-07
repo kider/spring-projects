@@ -12,6 +12,10 @@
     <groupId>com.spring.cloud.turbine</groupId>
     <artifactId>springcloud-turbine-amqp</artifactId>
     <version>${study.version}</version>
+    <packaging>jar</packaging>
+
+    <name>springcloud-turbine-amqp</name>
+    <description>Demo project for Spring Cloud</description>
 
     <dependencies>
         <!--turbine http方式
@@ -27,6 +31,15 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

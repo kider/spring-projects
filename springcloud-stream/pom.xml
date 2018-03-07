@@ -12,6 +12,10 @@
     <groupId>com.spring.cloud.stream</groupId>
     <artifactId>springcloud-stream</artifactId>
     <version>${study.version}</version>
+    <packaging>jar</packaging>
+
+    <name>springcloud-stream</name>
+    <description>Demo project for Spring Cloud</description>
 
     <dependencies>
 
@@ -27,6 +31,15 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 
