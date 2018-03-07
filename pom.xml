@@ -61,7 +61,6 @@
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-turbine-amqp</module>
         <module>springcloud-api-gateway</module>
-        <module>springcloud-stream</module>
     </modules>
 
 
