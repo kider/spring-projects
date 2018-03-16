@@ -18,17 +18,18 @@
     <description>Demo project for Spring Cloud</description>
 
     <dependencies>
-        <!--turbine http方式
-        <dependency>
-            <groupId>org.springframeworh.cloud</groupId>
-            <artifactId>spring-cloud-starter-turbine</artifactId>
-        </dependency>-->
+        <!--turbine http方式-->
 
-        <!-- turbine mq支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-turbine</artifactId>
+        </dependency>
+
+        <!-- turbine mq支持
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-turbine-amqp</artifactId>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 
