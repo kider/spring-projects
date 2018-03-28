@@ -2,7 +2,7 @@ package com.spring.cloud.eureka.consumer.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.spring.cloud.eureka.consumer.service.ConsumerService;
-import com.spring.cloud.eureka.consumer.web.DcClient;
+import com.spring.eureka.client.service.DcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -19,7 +19,7 @@ public class ConsumerServiceImpl implements ConsumerService{
     @Autowired
     RestTemplate loadBalancedRestTemplate;
     @Autowired
-    DcClient dcClient;
+    DcService dcService;
 
     @Override
     @HystrixCommand(fallbackMethod = "fallback")
@@ -39,7 +39,7 @@ public class ConsumerServiceImpl implements ConsumerService{
     @Override
     @HystrixCommand(fallbackMethod = "fallback")
     public String feignConsumer() {
-        return dcClient.consumer();
+        return dcService.findService();
     }
 
     public String fallback() {

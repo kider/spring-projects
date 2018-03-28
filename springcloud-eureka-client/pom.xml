@@ -13,28 +13,16 @@
 
 	<groupId>com.spring.cloud.eureka</groupId>
 	<artifactId>springcloud-eureka-client</artifactId>
-	<version>${study.version}</version>
-	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<name>springcloud-eureka-client</name>
 	<description>Demo project for Spring Cloud</description>
 
-	<dependencies>
-		<!-- 注册服务 -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-		</dependency>
+	<modules>
+		<module>eureka-client-interface</module>
+		<module>eureka-client-impl</module>
+	</modules>
 
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

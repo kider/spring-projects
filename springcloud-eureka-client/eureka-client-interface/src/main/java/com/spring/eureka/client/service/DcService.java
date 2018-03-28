@@ -1,12 +1,12 @@
-package com.spring.cloud.eureka.consumer.web;
+package com.spring.eureka.client.service;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient("eureka-client")
-public interface DcClient {
+public interface DcService {
 
-    @GetMapping("/dc")
-    String consumer();
+    @GetMapping("/findService")
+    public String findService();
 
 }

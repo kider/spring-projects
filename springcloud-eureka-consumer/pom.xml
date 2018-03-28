@@ -57,6 +57,12 @@
 			<artifactId>spring-cloud-netflix-hystrix-amqp</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.spring.cloud.eureka.client</groupId>
+			<artifactId>eureka-client-interface</artifactId>
+			<version>${study.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

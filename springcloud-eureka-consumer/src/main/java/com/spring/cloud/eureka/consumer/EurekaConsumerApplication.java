@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.spring.eureka.client.service")
 //@EnableHystrix
 @EnableCircuitBreaker
 public class EurekaConsumerApplication {
