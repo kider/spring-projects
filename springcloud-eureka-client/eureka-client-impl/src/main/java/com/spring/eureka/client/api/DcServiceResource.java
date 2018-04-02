@@ -21,7 +21,7 @@ public class DcServiceResource implements DcService{
     @ResponseBody
     public String findService() {
 
-        String services = "Services66: " + discoveryClient.getServices();
+        String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         return services;
 
