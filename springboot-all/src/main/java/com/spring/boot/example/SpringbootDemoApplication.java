@@ -18,11 +18,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 @EnableAspectJAutoProxy
 @EnableAutoConfiguration
 @EnableTransactionManagement
-@EnableCaching
+//@EnableCaching
 public class SpringbootDemoApplication {
 
 	public static void main(String[] args) {
@@ -62,5 +62,6 @@ public class SpringbootDemoApplication {
 
 			}
 		};
-	};
+	}
+
 }

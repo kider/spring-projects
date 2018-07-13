@@ -22,38 +22,38 @@ public class UserJdbcServiceImpl implements UserService {
     @Override
     public void create(String name, Integer age) {
         logger.debug("create t_user name:{},age:{}",name,age);
-        jdbcTemplate.update("insert into T_USER(NAME, AGE) values(?, ?)", name, age);
+        jdbcTemplate.update("insert into t_user(NAME, AGE) values(?, ?)", name, age);
     }
 
     @Override
     public void deleteByName(String name) {
         logger.debug("delete t_user name:{}",name);
-        jdbcTemplate.update("delete from T_USER where NAME = ?", name);
+        jdbcTemplate.update("delete from t_user where NAME = ?", name);
     }
 
     @Override
     public Integer getAllUsers() {
         logger.debug("get all t_user");
-        return jdbcTemplate.queryForObject("select count(1) from T_USER", Integer.class);
+        return jdbcTemplate.queryForObject("select count(1) from t_user", Integer.class);
     }
 
     @Override
     public void deleteAllUsers() {
         logger.debug("delete all t_user");
-        jdbcTemplate.update("delete from T_USER");
+        jdbcTemplate.update("delete from t_user");
     }
 
     @Override
     public void createBath(int v) {
         for(int i = 1;i<=v;i++){
-            jdbcTemplate.update("insert into T_USER(NAME, AGE) values(?, ?)", "name"+i,i);
+            jdbcTemplate.update("insert into t_user(NAME, AGE) values(?, ?)", "name"+i,i);
         }
     }
 
     @Override
     public User findByName(String name) {
 
-        List<Map<String,Object>> dataList = jdbcTemplate.queryForList("select ID,NAME,AGE from T_USER WHERE name =?",name);
+        List<Map<String,Object>> dataList = jdbcTemplate.queryForList("select ID,NAME,AGE from t_user WHERE name =?",name);
 
         if(null!=dataList && 0<dataList.size()){
             Map<String,Object> map = dataList.iterator().next();
@@ -69,6 +69,6 @@ public class UserJdbcServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-        jdbcTemplate.update("update T_USER set name = ? , age = ? where id = ?",user.getName(),user.getAge(),user.getId());
+        jdbcTemplate.update("update t_user set name = ? , age = ? where id = ?",user.getName(),user.getAge(),user.getId());
     }
 }

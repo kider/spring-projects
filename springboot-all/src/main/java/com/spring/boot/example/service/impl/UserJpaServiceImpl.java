@@ -1,8 +1,8 @@
 package com.spring.boot.example.service.impl;
 
+import com.spring.boot.example.entity.User;
 import com.spring.boot.example.service.UserRepository;
 import com.spring.boot.example.service.UserService;
-import com.spring.boot.example.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

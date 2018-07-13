@@ -10,10 +10,10 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    @Select("SELECT * FROM T_USER WHERE NAME = #{name}")
+    @Select("SELECT * FROM t_user WHERE NAME = #{name}")
     UserDto findByName(@Param("name") String name);
 
-    @Insert("INSERT INTO T_USER(NAME, AGE) VALUES(#{name}, #{age})")
+    @Insert("INSERT INTO t_user(NAME, AGE) VALUES(#{name}, #{age})")
     int insert(@Param("name") String name, @Param("age") Integer age);
 
 }

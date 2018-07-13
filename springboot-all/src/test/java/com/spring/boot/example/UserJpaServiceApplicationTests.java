@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -15,12 +16,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserJpaServiceApplicationTests {
 
 	@Autowired
-	private UserService userJpaService;
+	@Qualifier("userJpaService")
+	private UserService userJpaService1;
 
 	@Before
 	public void setUp() {
 		// 准备，清空user表
-		userJpaService.deleteAllUsers();
+		userJpaService1.deleteAllUsers();
 	}
 
 	@Test
@@ -28,19 +30,19 @@ public class UserJpaServiceApplicationTests {
 
 		int i = 9;
 
-		userJpaService.createBath(i);
+		userJpaService1.createBath(i);
 
 
 		// 查数据库，应该有i个用户
-		Assert.assertEquals(i, userJpaService.getAllUsers().intValue());
+		Assert.assertEquals(i, userJpaService1.getAllUsers().intValue());
 
 		// 删除两个用户
-		userJpaService.deleteByName("name1");
-		userJpaService.deleteByName("name2");
+		userJpaService1.deleteByName("name1");
+		userJpaService1.deleteByName("name2");
 
 
 		// 查数据库，应该有i-2个用户
-		Assert.assertEquals(i-2, userJpaService.getAllUsers().intValue());
+		Assert.assertEquals(i-2, userJpaService1.getAllUsers().intValue());
 
 	}
 
