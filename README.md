@@ -1,6 +1,6 @@
-- **Spring Boot 1.5.10**
+- **Spring Boot 2.1.4**
 
-**Log4j2、Swagger2、Thymeleaf、Jpa、Redis、Aop、Mybatis、Spring Job、RabbitMQ**
+**Log4j2、Swagger2、Thymeleaf、Jpa、Redis、Aop、Mybatis、Spring Job、RabbitMQ、webflux**
 
 - **Spring Cloud Dalston版**
 
