@@ -6,7 +6,6 @@
         <artifactId>spring-projects</artifactId>
         <groupId>com.spring.study</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,10 +19,9 @@
 
     <dependencies>
         <!--turbine http方式-->
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-turbine</artifactId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
         </dependency>
 
         <!-- turbine mq支持

@@ -8,8 +8,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.http.HttpServletRequest;
 
 
-
-public class AccessFilter extends ZuulFilter{
+public class AccessFilter extends ZuulFilter {
 
     Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
@@ -44,7 +43,7 @@ public class AccessFilter extends ZuulFilter{
 
         Object accessToken = request.getParameter("accessToken");
 
-        if(accessToken == null) {
+        if (accessToken == null) {
             logger.warn("access token is empty");
             ctx.setSendZuulResponse(false);//该请求，不对其进行路由
             ctx.setResponseStatusCode(401);//返回的错误码

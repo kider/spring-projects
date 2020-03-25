@@ -8,7 +8,6 @@
         <artifactId>spring-projects</artifactId>
         <groupId>com.spring.study</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.spring.cloud.eureka</groupId>
@@ -20,10 +19,9 @@
     <description>Demo project for Spring Cloud</description>
 
     <dependencies>
-        <!--注册服务-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
     </dependencies>
 
