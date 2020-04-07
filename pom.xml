@@ -29,6 +29,7 @@
         <swagger2.version>2.7.0</swagger2.version>
         <mybatis.version>1.1.1</mybatis.version>
         <httpclient.version>4.5.2</httpclient.version>
+        <rocketmq-spring-boot-starter-version>2.1.0</rocketmq-spring-boot-starter-version>
     </properties>
 
     <dependencyManagement>
@@ -70,6 +71,12 @@
                 <version>${mybatis.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq-spring-boot-starter-version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -85,9 +92,7 @@
         <module>springboot-all</module>
         <module>springcloud-config-client</module>
         <module>springcloud-config-server</module>
-        <module>springcloud-eureka-client</module>
         <module>springcloud-eureka-server</module>
-        <module>springcloud-eureka-consumer</module>
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-turbine-amqp</module>
         <module>springcloud-api-gateway</module>
@@ -95,6 +100,8 @@
         <module>springcloud-stream-sender</module>
         <module>my-starter</module>
         <module>springboot-webflux</module>
+        <module>springcloud-order-service</module>
+        <module>springcloud-stock-service</module>
     </modules>
 
 
