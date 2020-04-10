@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @ClassName OrderService
+ * @ClassName OrderApi
  * @Description 订单服务接口
  * @Author kider
  * @Date 2020/3/26 17:47
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  **/
 @FeignClient("order-service")
 @Api(tags = "订单服务接口")
-public interface OrderService {
+public interface OrderApi {
 
     @PostMapping("/order/buy")
     @ApiOperation("下单接口")

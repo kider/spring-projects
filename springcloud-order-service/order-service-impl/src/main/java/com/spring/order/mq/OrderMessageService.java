@@ -1,7 +1,9 @@
 package com.spring.order.mq;
 
+import com.spring.order.dto.Order;
 import com.spring.stock.dto.Stock;
 import org.apache.rocketmq.client.producer.SendResult;
+import org.apache.rocketmq.client.producer.TransactionSendResult;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +21,6 @@ import org.springframework.util.MimeTypeUtils;
  **/
 @Component
 public class OrderMessageService {
-
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
@@ -51,6 +52,13 @@ public class OrderMessageService {
         // Send string with spring Message
         SendResult sendResult = rocketMQTemplate.syncSend(orderTopic, MessageBuilder.withPayload(msg).build());
         System.out.printf("sendSpringMsg to topic %s sendResult=%s %n", orderTopic, sendResult);
+
+    }
+
+    public void sendTransMsg(Stock stock, Order order) {
+        // Send string with Transaction Message
+        TransactionSendResult sendResult = rocketMQTemplate.sendMessageInTransaction(orderTopic, MessageBuilder.withPayload(stock).build(), order);
+        System.out.printf("sendTransMsg to topic %s sendResult=%s %n", orderTopic, sendResult);
 
     }
 

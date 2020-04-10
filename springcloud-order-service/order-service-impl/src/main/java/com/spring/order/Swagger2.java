@@ -34,7 +34,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2).enable(this.swaggerShow)
                 .groupName("例子")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.spring.order.service"))
+                .apis(RequestHandlerSelectors.basePackage("com.spring.order.controller"))
                 .paths(PathSelectors.any())
                 .build().globalOperationParameters(getTokenPar()).consumes(Swagger2.consumes);
     }

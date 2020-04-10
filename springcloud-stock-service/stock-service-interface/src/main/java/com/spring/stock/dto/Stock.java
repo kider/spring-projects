@@ -13,11 +13,14 @@ public class Stock implements Serializable {
 
     private static final long serialVersionUID = 4250396938093514472L;
 
+    private Long id;
+
     private Long orderId;
 
     private Long skuId;
 
     private Integer num;
+
 
     public Long getOrderId() {
         return orderId;
@@ -41,5 +44,13 @@ public class Stock implements Serializable {
 
     public void setNum(Integer num) {
         this.num = num;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
