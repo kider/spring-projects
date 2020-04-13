@@ -26,6 +26,7 @@ public class Swagger2 {
 
     public static final HashSet<String> consumes = new HashSet<String>() {{
         add("application/x-www-form-urlencoded");
+        add("application/json");
     }};
 
 

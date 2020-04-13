@@ -1,6 +1,9 @@
 package com.spring.stock.controller;
 
+import com.spring.stock.dto.Stock;
 import com.spring.stock.service.StockApi;
+import com.spring.stock.service.impl.StockServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,9 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StockApiResource implements StockApi {
 
+    @Autowired
+    private StockServiceImpl stockService;
+
     @Override
-    public String reduceStock(Integer num) {
-        System.out.println("扣减库存:" + num);
+    public String reduceStock(Stock stock) {
+        stockService.reduceStock(stock);
         return "success";
     }
 }

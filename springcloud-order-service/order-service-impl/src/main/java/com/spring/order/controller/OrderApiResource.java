@@ -3,6 +3,7 @@ package com.spring.order.controller;
 import com.spring.order.dto.Order;
 import com.spring.order.mq.OrderMessageService;
 import com.spring.order.service.OrderApi;
+import com.spring.order.service.impl.OrderServiceImpl;
 import com.spring.stock.dto.Stock;
 import com.spring.stock.service.StockApi;
 import org.apache.commons.lang.math.RandomUtils;
@@ -20,13 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderApiResource implements OrderApi {
 
     @Autowired
-    private StockApi stockService;
+    private StockApi stockApi;
+
+    @Autowired
+    private OrderServiceImpl orderService;
 
     @Autowired
     private OrderMessageService orderMessageService;
 
     @Override
-    public String buy(Integer num, Double price) {
+    public String buyMQ(Integer num, Double price) {
 
         Long id = RandomUtils.nextLong();
         Order order = new Order();
@@ -42,6 +46,19 @@ public class OrderApiResource implements OrderApi {
         stock.setNum(num);
         orderMessageService.sendTransMsg(stock, order);
 
+        return "success";
+    }
+
+    @Override
+    public String buy(Order order) {
+        Long id = RandomUtils.nextLong();
+        order.setId(id);
+        orderService.pay(order);
+        Stock stock = new Stock();
+        stock.setOrderId(id);
+        stock.setSkuId(100001L);
+        stock.setNum(order.getNum());
+        stockApi.reduceStock(stock);
         return "success";
     }
 }

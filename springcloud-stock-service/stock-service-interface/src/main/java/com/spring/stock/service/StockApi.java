@@ -1,10 +1,12 @@
 package com.spring.stock.service;
 
+import com.spring.stock.dto.Stock;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -20,7 +22,7 @@ public interface StockApi {
 
     @PostMapping("/stock/reduce")
     @ApiOperation("减库存接口")
-    @ApiImplicitParam(name = "num", value = "数量", defaultValue = "0", required = true, paramType = "query", dataType = "int")
-    String reduceStock(@RequestParam(name = "num") Integer num);
+    @ApiImplicitParam(name = "stock", value = "库存信息",required = true,dataTypeClass = Stock.class)
+    String reduceStock(@RequestBody Stock stock);
 
 }
