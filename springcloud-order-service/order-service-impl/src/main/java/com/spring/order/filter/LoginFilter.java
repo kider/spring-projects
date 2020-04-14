@@ -1,5 +1,7 @@
 package com.spring.order.filter;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
@@ -20,13 +22,15 @@ import java.util.Arrays;
 @Order(1)
 public class LoginFilter implements Filter {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         Cookie[] cookies = httpServletRequest.getCookies();
         if (null != cookies) {
             Arrays.stream(cookies).forEach((cookie) -> {
-                System.out.println(cookie);
+                logger.info("cookie:{}", cookie);
             });
         }
         filterChain.doFilter(servletRequest, servletResponse);

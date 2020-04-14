@@ -1,6 +1,8 @@
 package com.spring.order.service.impl;
 
 import com.spring.order.dto.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,11 +17,14 @@ import java.util.HashMap;
 @Service
 public class OrderServiceImpl {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
     private final static HashMap<Long, Order> orders = new HashMap<>();
 
     public void pay(Order order) {
         orders.put(order.getId(), order);
-        System.out.println("订单ID:" + order.getId() + "，购买" + order.getNum() + "个，单价：" + order.getPrice() + "，付款:" + order.getTotalPrice() + "成功！");
+        logger.info("订单ID:{}，购买：{}个，单价：{}，付款：{}，成功！", order.getId(), order.getNum(), order.getPrice(), order.getTotalPrice());
     }
 
 
