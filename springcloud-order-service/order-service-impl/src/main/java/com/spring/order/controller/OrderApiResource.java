@@ -7,8 +7,14 @@ import com.spring.order.service.impl.OrderServiceImpl;
 import com.spring.stock.dto.Stock;
 import com.spring.stock.service.StockApi;
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.rocketmq.client.producer.TransactionSendResult;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * @ClassName OrderApiResource
@@ -26,8 +32,14 @@ public class OrderApiResource implements OrderApi {
     @Autowired
     private OrderServiceImpl orderService;
 
-    @Autowired
-    private OrderMessageService orderMessageService;
+   /* @Autowired
+    private OrderMessageService orderMessageService;*/
+
+    @Value("${order.rocketmq.topic}")
+    private String orderTopic;
+
+    @Resource(name = "orderExtRocketMQTemplate")
+    private RocketMQTemplate orderExtRocketMQTemplate;
 
     @Override
     public String buyMQ(Integer num, Double price) {
@@ -44,8 +56,7 @@ public class OrderApiResource implements OrderApi {
         stock.setOrderId(id);
         stock.setSkuId(100001L);
         stock.setNum(num);
-        orderMessageService.sendTransMsg(stock, order);
-
+        TransactionSendResult sendResult = orderExtRocketMQTemplate.sendMessageInTransaction(orderTopic, MessageBuilder.withPayload(stock).build(), order);
         return "success";
     }
 

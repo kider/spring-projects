@@ -19,8 +19,9 @@ import org.springframework.messaging.Message;
  * @version 1.0
  * @date 2020/4/9 17:40
  **/
-@RocketMQTransactionListener
+@RocketMQTransactionListener(rocketMQTemplateBeanName = "orderExtRocketMQTemplate")
 public class OrderTransactionListener implements RocketMQLocalTransactionListener {
+
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
