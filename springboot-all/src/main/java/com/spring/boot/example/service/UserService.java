@@ -1,13 +1,11 @@
 package com.spring.boot.example.service;
 
 import com.spring.boot.example.entity.User;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.io.IOException;
 
 
 /**
@@ -16,8 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
  * @date :2018-01-29 14:06:18
  */
-@CacheConfig(cacheNames = "users")
 public interface UserService {
+
+
     /**
      * 新增一个用户
      *
@@ -26,19 +25,18 @@ public interface UserService {
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-01-29 14:06:18
      */
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED)
-    @CachePut(key = "#p0")
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
     void create(String name, Integer age);
 
     /**
-     * 根据name删除一个用户高
+     * 根据name删除一个用户
      *
      * @param name the name
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-01-29 14:06:18
      */
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED)
-    void deleteByName(String name);
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
+    void deleteByName(String name) throws IOException;
 
     /**
      * 获取用户总量
@@ -55,8 +53,7 @@ public interface UserService {
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-01-29 14:06:18
      */
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED)
-    @CacheEvict(value = "users",allEntries = true)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
     void deleteAllUsers();
 
     /**
@@ -66,7 +63,7 @@ public interface UserService {
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-01-29 16:03:59
      */
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
     void createBath(int v);
 
     /**
@@ -77,7 +74,6 @@ public interface UserService {
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-02-02 14:00:19
      */
-    @Cacheable(key = "#p0")
     User findByName(String name);
 
     /**
@@ -87,7 +83,6 @@ public interface UserService {
      * @author :<a href="mailto:chenhao@ebnew.com">kid</a>
      * @date :2018-02-02 14:01:22
      */
-    @CachePut(key = "#p0.name")
     void updateUser(User user);
 
 }
