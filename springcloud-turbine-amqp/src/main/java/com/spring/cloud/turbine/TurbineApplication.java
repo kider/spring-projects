@@ -8,7 +8,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableAutoConfiguration
 @EnableTurbine //http方式
 //@EnableTurbineStream //mq 方式
 @EnableDiscoveryClient
