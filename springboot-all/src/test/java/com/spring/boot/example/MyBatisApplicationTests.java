@@ -2,7 +2,6 @@ package com.spring.boot.example;
 
 import com.spring.boot.example.dao.CityDao;
 import com.spring.boot.example.dao.HotelDao;
-import com.spring.boot.example.dto.UserDto;
 import com.spring.boot.example.entity.Hotel;
 import com.spring.boot.example.entity.User;
 import com.spring.boot.example.mapper.UserMapper;
@@ -45,10 +44,10 @@ public class MyBatisApplicationTests {
             User user = new User();
             user.setName("chenhao" + i);
             user.setAge(i);
-            userMapper.insertOne("chenhao" + i, i);
+            userMapper.insertOne(user);
         }
         long endTime = System.currentTimeMillis();
-        System.out.printf("共消耗时间:%s ms", endTime - startTime);
+        System.out.printf("testBatchInsert 共消耗时间:%s ms", endTime - startTime);
     }
 
     @Test
@@ -61,9 +60,9 @@ public class MyBatisApplicationTests {
             user.setAge(i);
             users.add(user);
         }
-        userMapper.insertOneSQL(users);
+        userMapper.addByOneSQL(users);
         long endTime = System.currentTimeMillis();
-        System.out.printf("共消耗时间:%s ms", endTime - startTime);
+        System.out.printf("testBatchInsert1 共消耗时间:%s ms", endTime - startTime);
     }
 
     @Test
@@ -75,11 +74,11 @@ public class MyBatisApplicationTests {
             User user = new User();
             user.setName("chenhao" + i);
             user.setAge(i);
-            userMapper.insertOne("chenhao" + i, i);
+            userMapper.insertOne(user);
         }
         sqlSession.commit();
         long endTime = System.currentTimeMillis();
-        System.out.printf("共消耗时间:%s ms", endTime - startTime);
+        System.out.printf("testBatchInsert2 共消耗时间:%s ms", endTime - startTime);
     }
 
     @Test
@@ -94,18 +93,21 @@ public class MyBatisApplicationTests {
             user.setAge(i);
             users.add(user);
         }
-        userMapper.insertOneSQL(users);
+        userMapper.addByOneSQL(users);
         sqlSession.commit();
         long endTime = System.currentTimeMillis();
-        System.out.printf("共消耗时间:%s ms", endTime - startTime);
+        System.out.printf("testBatchInsert3 共消耗时间:%s ms", endTime - startTime);
     }
 
 
     @Test
     @Rollback
     public void testMyBatis1() throws Exception {
-        userMapper.insertOne("chenhao", 28);
-        UserDto u = userMapper.findByName("chenhao");
+        User user = new User();
+        user.setName("chenhao");
+        user.setAge(28);
+        userMapper.insertOne(user);
+        User u = userMapper.findByName("chenhao");
         Assert.assertEquals(28, u.getAge().intValue());
     }
 
