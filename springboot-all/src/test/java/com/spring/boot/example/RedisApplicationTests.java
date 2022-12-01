@@ -15,44 +15,44 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = SpringbootDemoApplication.class)
 public class RedisApplicationTests {
 
-	@Autowired
-	private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
 
-	@Autowired
-	private UserService userJpaService;
-
-
-	@Test
-	public void test() throws Exception {
-		// 保存字符串
-		stringRedisTemplate.opsForValue().set("hhh", "888");
-		Assert.assertEquals("888", stringRedisTemplate.opsForValue().get("hhh"));
-
-	}
+    @Autowired
+    private UserService userJpaService;
 
 
-	@Test
-	public void testJpaRedisQuery() throws Exception {
-		// 准备，清空user表
-		userJpaService.deleteAllUsers();
-		int i = 5;
-		// 插入5个用户
-		userJpaService.createBath(i);
+    @Test
+    public void test() throws Exception {
+        // 保存字符串
+        stringRedisTemplate.opsForValue().set("hhh", "888");
+        Assert.assertEquals("888", stringRedisTemplate.opsForValue().get("hhh"));
 
-		User u = userJpaService.findByName("name1");
+    }
 
-		System.out.println(u.toString());
 
-		u.setAge(19);
+    @Test
+    public void testJpaRedisQuery() throws Exception {
+        // 准备，清空user表
+        userJpaService.deleteAllUsers();
+        int i = 5;
+        // 插入5个用户
+        userJpaService.createBath(i);
 
-		userJpaService.updateUser(u);
+        User u = userJpaService.findByName("name1");
 
-		u = userJpaService.findByName("name1");
+        System.out.println(u.toString());
 
-		userJpaService.findByName("name1");
+        u.setAge(19);
 
-		System.out.println(u.toString());
+        userJpaService.updateUser(u);
 
-	}
+        u = userJpaService.findByName("name1");
+
+        userJpaService.findByName("name1");
+
+        System.out.println(u.toString());
+
+    }
 
 }

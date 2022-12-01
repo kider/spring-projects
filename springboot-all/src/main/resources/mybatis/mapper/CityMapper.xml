@@ -20,7 +20,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mapper.CityMapper">
-    <select id="selectCityById" resultType="com.spring.boot.starter.example.entity.City">
+    <select id="selectCityById" resultType="com.spring.boot.example.entity.City">
         select * from city where id = #{id}
     </select>
 </mapper>
