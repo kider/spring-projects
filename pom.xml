@@ -26,7 +26,7 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <study.version>0.0.1-SNAPSHOT</study.version>
         <mysql.version>8.0.11</mysql.version>
-        <swagger2.version>2.7.0</swagger2.version>
+        <swagger2.version>2.10.0</swagger2.version>
         <mybatis.version>1.1.1</mybatis.version>
         <httpclient.version>4.5.2</httpclient.version>
         <rocketmq-spring-boot-starter-version>2.1.0</rocketmq-spring-boot-starter-version>
